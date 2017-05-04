@@ -1,0 +1,35 @@
+<main>
+    <div class="container body-container">
+        <div class="row">
+            <div id="main" class="col-sm-9">
+                <div>
+                    <span th:text="${user.email}"></span>
+                    <br/>
+                    <span th:text="${user.fullName}"></span>
+                    <br/>
+                    <span th:text="${user.balance}"></span>
+                </div>
+                <div class="table-title">
+                    <h3>Your Payments</h3>
+                </div>
+                <table class="table-fill"  th:if="${not #lists.isEmpty(payments)}" >
+                    <thead>
+                    <tr>
+                        <th class="text-left">Month</th>
+                        <th class="text-left">Sales</th>
+                        <th class="text-left">Comment</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-hover" >
+                    <tr th:each="payments : ${payments}">
+                        <td class="text-left" th:text = "${payments.date}"></td>
+                        <td class="text-left" th:text = "${payments.sum}"></td>
+                        <td class="text-left" th:text = "${payments.comment}"></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+        </div>
+        </div>
+    </div>
+</main>
